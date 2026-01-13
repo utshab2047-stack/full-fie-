@@ -1,0 +1,48 @@
+{
+  "_comment": "User Profile Configuration for NEPSE Trading Form - Edit these values",
+  
+  "personal_info": {
+    "full_name": "राम बहादुर शर्मा",
+    "address": "काठमाडौं-१०, बागमती प्रदेश, नेपाल",
+    "father_name": "कृष्ण बहादुर शर्मा",
+    "spouse_or_grandfather_name": "N/A",
+    "citizenship_or_pan": "१२-०१-७५-१२३४५",
+    "date_of_birth": "२०४० साल माघ १५",
+    "issue_place": "काठमाडौं",
+    "mobile_number": "९८४१२३४५६७",
+    "phone_number": "०१-४५६७८९०",
+    "client_code": "MYO12345"
+  },
+  
+  "signature": {
+    "_comment": "Leave empty for no signature, or provide path to signature image",
+    "signature_path": "",
+    "signature_text": ""
+  },
+  
+  "trading_defaults": {
+    "security_type": "साधारण शेयर",
+    "default_quantity": 10,
+    "days_to_execute": "७"
+  },
+  
+  "email_config": {
+    "broker_email": "avinaya@miyo66.com",
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "utshabbs@gmail.com",
+    "sender_password": "hemcjxsknxtgtlpq",
+    "_comment_password": "For Gmail, use App Password from Google Account Settings > Security > 2-Step Verification > App passwords"
+  },
+  
+  "price_ranges": {
+    "_comment": "Percentage adjustments for price ranges",
+    "min_max_range_percent": 0.01,
+    "broker_discretion_percent": 0.005
+  },
+  
+  "serial_number": {
+    "_comment": "Starting serial number for order forms",
+    "start_from": 888888
+  }
+}

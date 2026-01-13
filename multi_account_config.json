@@ -1,0 +1,86 @@
+{
+  "accounts": {
+    "Account_A": {
+      "enabled": false,
+      "id": "A",
+      "name": "MAIN_TRADER_001",
+      "broker": "tms47",
+      "executor_script": "4_order_executor_A.py",
+      "chrome_port": 9222,
+      "base_url": "https://tms47.nepsetms.com.np",
+      "enable_trading": false,
+      "default_qty": 10,
+      "max_sell_qty": 50,
+      "max_retries": 5,
+      "dp_refresh_interval": 60
+    },
+    "Account_B": {
+      "enabled": true,
+      "id": "B",
+      "name": "MAIN_TRADER_002",
+      "broker": "tms66",
+      "executor_script": "4_order_executor_B.py",
+      "chrome_port": 9223,
+      "base_url": "https://tms66.nepsetms.com.np",
+      "enable_trading": true,
+      "default_qty": 10,
+      "max_sell_qty": 50,
+      "max_retries": 5,
+      "dp_refresh_interval": 60
+    },
+    "Account_C": {
+      "enabled": false,
+      "id": "C",
+      "name": "MAIN_TRADER_003",
+      "broker": "tms62",
+      "executor_script": "4_order_executor_C.py",
+      "chrome_port": 9224,
+      "base_url": "https://tms62.nepsetms.com.np",
+      "enable_trading": false,
+      "default_qty": 10,
+      "max_sell_qty": 50,
+      "max_retries": 5,
+      "dp_refresh_interval": 60
+    },
+    "Account_D": {
+      "enabled": false,
+      "id": "D",
+      "name": "MAIN_TRADER_004",
+      "broker": "tms62",
+      "executor_script": "4_order_executor_D.py",
+      "chrome_port": 9225,
+      "base_url": "https://tms62.nepsetms.com.np",
+      "enable_trading": false,
+      "default_qty": 10,
+      "max_sell_qty": 50,
+      "max_retries": 5,
+      "dp_refresh_interval": 60
+    },
+    "Account_E": {
+      "enabled": false,
+      "id": "E",
+      "name": "MAIN_TRADER_005",
+      "broker": "tms62",
+      "executor_script": "4_order_executor_E.py",
+      "chrome_port": 9226,
+      "base_url": "https://tms62.nepsetms.com.np",
+      "enable_trading": false,
+      "default_qty": 10,
+      "max_sell_qty": 50,
+      "max_retries": 5,
+      "dp_refresh_interval": 60
+    }
+  },
+  "orchestrator": {
+    "launch_delay": 15,
+    "heartbeat_interval": 8,
+    "heartbeat_timeout": 120,
+    "diagnostic_checkpoint_interval": 300,
+    "use_manager": true,
+    "auto_restart": true,
+    "max_restart_attempts": 3,
+    "restart_delay_seconds": 30,
+    "initial_grace_period": 60,
+    "keep_chrome_open_on_restart": true
+  }
+}

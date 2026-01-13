@@ -1,0 +1,15 @@
+# Backend requirements for NEPSE Empire (Python)
+# Install with: pip install -r requirements.txt
+
+Flask>=2.1
+flask-cors>=3.0
+selenium>=4.8.0
+undetected-chromedriver>=3.3.1
+webdriver-manager>=3.8.6
+psutil>=5.9.0
+watchdog>=2.2.1
+requests>=2.28.0
+python-dotenv>=0.21.0
+
+# Optional / production
+gunicorn>=20.1.0

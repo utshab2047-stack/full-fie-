@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ne">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>खरिद/बिक्री आदेश-पत्र - दर्ता नं. {{SERIAL_NUMBER}}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --page-width: 900px;
+      --border: 2px solid #000;
+      font-family: "Noto Sans Devanagari", "Devanagari", sans-serif;
+    }
+    body{
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .sheet{
+      width: min(var(--page-width), 96vw);
+      border: 2px solid #000;
+      padding: 0;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px 28px 12px 28px;
+      border-bottom: 2px solid #000;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo {
+      width: 80px;
+      height: auto;
+    }
+    .header-center {
+      text-align: center;
+      flex: 1;
+      padding: 0 20px;
+    }
+    .regulation {
+      font-size: 13px;
+      margin: 4px 0;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 8px 0 0 0;
+    }
+    .appendix {
+      text-align: right;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .content {
+      padding: 20px 28px;
+    }
+    .date-fields {
+      text-align: right;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .date-fields div {
+      margin-bottom: 4px;
+    }
+    .field-label {
+      display: inline-block;
+      min-width: 80px;
+      font-weight: 600;
+    }
+    .field-value {
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      min-width: 150px;
+      padding: 0 8px;
+      font-weight: 700;
+    }
+    .salutation {
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .main-text {
+      text-align: justify;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .main-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .main-table th,
+    .main-table td {
+      border: var(--border);
+      padding: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .main-table th {
+      background: #f5f5f5;
+      font-size: 15px;
+    }
+    .main-table .data-row td {
+      height: 180px;
+      vertical-align: middle;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .col-name { width: 35%; }
+    .col-type { width: 20%; }
+    .col-qty { width: 15%; }
+    .col-price { width: 30%; }
+    .bottom-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 24px;
+    }
+    .info-group {
+      line-height: 2;
+    }
+    .info-field {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .info-field label {
+      font-weight: 600;
+      min-width: 180px;
+      flex-shrink: 0;
+    }
+    .info-field .value {
+      flex: 1;
+      border-bottom: 1px solid #000;
+      min-height: 20px;
+      padding: 0 8px;
+      font-weight: 600;
+    }
+    .price-note {
+      margin-top: 24px;
+      border: 2px solid #000;
+      padding: 16px;
+    }
+    .price-note-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+    .price-note-content {
+      line-height: 1.8;
+    }
+    .price-options {
+      margin-top: 12px;
+      padding-left: 20px;
+      font-weight: 600;
+    }
+    .price-options div {
+      margin-bottom: 6px;
+    }
+    @media print {
+      body { padding: 0; }
+      .sheet { border: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="header-left">
+        <!-- Miyo Securities Logo -->
+        <svg class="logo" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="20,80 50,20 80,80" fill="#2196F3"/>
+          <polygon points="80,80 110,20 140,80" fill="#4CAF50"/>
+          <rect x="145" y="35" width="10" height="45" fill="#4CAF50" rx="2"/>
+          <circle cx="150" cy="25" r="6" fill="#4CAF50"/>
+        </svg>
+      </div>
+      
+      <div class="header-center">
+        <div class="regulation">अनुसूची–४</div>
+        <div class="regulation">विनियम (२०) (१) सँग सम्बन्धित</div>
+        <h1 class="title">खरिद/बिक्री आदेश-पत्र</h1>
+      </div>
+      
+      <div class="appendix">
+        फाराम नं. १
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Date Fields -->
+      <div class="date-fields">
+        <div><span class="field-label">दर्ता नं.</span> <span class="field-value">{{SERIAL_NUMBER}}</span></div>
+        <div><span class="field-label">मिति</span> <span class="field-value">{{DATE_NEPALI}}</span></div>
+        <div><span class="field-label">समय</span> <span class="field-value">{{TIME_NEPALI}}</span></div>
+      </div>
+
+      <!-- Salutation -->
+      <div class="salutation">महाशय,</div>
+
+      <!-- Main Text -->
+      <div class="main-text">
+        म/हामीलाई निम्न धितोपत्र खरिद/बिक्री गर्नु पर्ने भएको हुँदा मेरो/हाम्रो नाममा <strong>{{DAYS_TO_EXECUTE}}</strong> दिन 
+        भित्र खरिद/बिक्री गरी दिन अनुरोध गर्दछु/गर्दछौं । उक्त धितोपत्र खरिद/बिक्री गरिदिए वापत नियम अनुसार 
+        कारोबार कमिसन, सेवा शुल्कहरू र पूँजीगत लाभ कर दिन मेरो/हाम्रो मञ्जुर छ । कसैले दाबित्वाले उक्त धितोपत्र 
+        मैले/हामीले लिन इन्कार गरेमा त्यसबाट हुने हानि नोक्सानी व्यहोर्न तयार छु/छौं । कम्पनी ऐन २०६३ को दफा 
+        ५३ बमोजिम म/हामी वा मेरो/हाम्रो नातेदार उक्त कम्पनी वा उक्त कम्पनीको सहायक कम्पनीमा 
+        संचालक, प्रबन्धक संचालक, लेखा परीक्षक, कम्पनी सचिव वा व्यवस्थापन तथा लेखा सम्बन्धी कार्यमा प्रत्यक्ष रूपमा 
+        संलग्न छैन/छैनौं ।
+      </div>
+
+      <!-- Main Table -->
+      <table class="main-table">
+        <thead>
+          <tr>
+            <th class="col-name">संगठित संस्थाको नाम</th>
+            <th class="col-type">धितोपत्रको<br/>किसिम</th>
+            <th class="col-qty">संख्या</th>
+            <th class="col-price">खरिद/बिक्री/मूल्य<br/>प्रति धितोपत्र</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="data-row">
+            <td class="col-name">{{COMPANY_NAME}}</td>
+            <td class="col-type">{{SECURITY_TYPE}}</td>
+            <td class="col-qty">{{QUANTITY}}</td>
+            <td class="col-price">{{ACTION_PRICE}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Bottom Section with Personal Info -->
+      <div class="bottom-section">
+        <!-- Left Column -->
+        <div class="info-group">
+          <div class="info-field">
+            <label>दस्तखत :</label>
+            <div class="value">{{SIGNATURE}}</div>
+          </div>
+          <div class="info-field">
+            <label>खरिद/बिक्री आदेश दिनेको नाम :</label>
+            <div class="value">{{FULL_NAME}}</div>
+          </div>
+          <div class="info-field">
+            <label>ठेगाना :</label>
+            <div class="value">{{ADDRESS}}</div>
+          </div>
+          <div class="info-field">
+            <label>बाबुको नाम :</label>
+            <div class="value">{{FATHER_NAME}}</div>
+          </div>
+          <div class="info-field">
+            <label>पति/बाजेको नाम :</label>
+            <div class="value">{{SPOUSE_GP_NAME}}</div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="info-group">
+          <div class="info-field">
+            <label>ना.प्र.न./पान नं. :</label>
+            <div class="value">{{CITIZENSHIP_PAN}}</div>
+          </div>
+          <div class="info-field">
+            <label>जन्म मिति (ईस्वी सम्बत्मा) :</label>
+            <div class="value">{{DATE_OF_BIRTH}}</div>
+          </div>
+          <div class="info-field">
+            <label>जारी स्थान :</label>
+            <div class="value">{{ISSUE_PLACE}}</div>
+          </div>
+          <div class="info-field">
+            <label>मोबाइल नं. :</label>
+            <div class="value">{{MOBILE_NUMBER}}</div>
+          </div>
+          <div class="info-field">
+            <label>टेलिफोन नं. :</label>
+            <div class="value">{{PHONE_NUMBER}}</div>
+          </div>
+          <div class="info-field">
+            <label>ग्राहक संकेत नं. :</label>
+            <div class="value">{{CLIENT_CODE}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Note Box -->
+      <div class="price-note">
+        <div class="price-note-title">दृष्टव्य :</div>
+        <div class="price-note-content">
+          खरिद/बिक्री मूल्य सम्बन्धमा देहायका मध्ये कुनै एक उल्लेख गर्नु पर्नेछ ।
+          <div class="price-options">
+            <div>क) निश्चित मूल्य रु. <strong>{{FIXED_PRICE}}</strong></div>
+            <div>ख) न्यूनतम मूल्य/अधिकतम मूल्य रु. <strong>{{MIN_MAX_PRICE}}</strong></div>
+            <div>ग) दलालले उपयुक्त ठानेको मूल्य रु. <strong>{{BROKER_DISCRETION_PRICE}}</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
