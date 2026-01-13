@@ -1,5 +1,5 @@
 """
-backend/3_signal_engine_v2.py -> Moved to root as 3_signal_engine.py
+backend/3_signal_engine_v2.py
 Real-time personalized signal engine that:
  - reads shared/market_data.json
  - reads shared/user_strategies.json every STRATEGY_RELOAD_INTERVAL seconds
@@ -7,7 +7,7 @@ Real-time personalized signal engine that:
  - logs signals to DB (signal_history) and CSV
 
 Run:
-    python 3_signal_engine.py
+    python backend/3_signal_engine_v2.py
 """
 import json
 import os
@@ -18,14 +18,14 @@ from datetime import datetime
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-SHARED_DIR = BASE_DIR / "shared"
-DATA_FILE = SHARED_DIR / "market_data_live.json"
+SHARED_DIR = BASE_DIR.parent / "shared"
+DATA_FILE = SHARED_DIR / "market_data.json"
 STRATEGIES_FILE = SHARED_DIR / "user_strategies.json"
 SIGNAL_FILE = SHARED_DIR / "signals.json"
 SIGNAL_LEGACY = SHARED_DIR / "signals_legacy.json"
 LOG_DIR = BASE_DIR / "logs"
 CSV_LOG = LOG_DIR / "SIGNALS_HISTORY.csv"
-DATABASE_PATH = BASE_DIR / "backend" / "trading_system.db"
+DATABASE_PATH = BASE_DIR / "trading_system.db"
 
 LOG_DIR.mkdir(exist_ok=True)
 SHARED_DIR.mkdir(exist_ok=True)
@@ -37,7 +37,7 @@ if not CSV_LOG.exists():
         ])
 
 print("=" * 100)
-print("🚀 NEPAL PERSONALIZED SIGNAL ENGINE 2025 - REAL-TIME EDITION (INTEGRATED)")
+print("🚀 NEPAL PERSONALIZED SIGNAL ENGINE 2025 - REAL-TIME EDITION")
 print("=" * 100)
 
 def safe_load_json(path, default=None):
@@ -79,7 +79,7 @@ def log_signal_to_db(user_id, symbol, action, price, qty, reason):
 
 user_strategies = {}
 last_strategy_reload = 0
-STRATEGY_RELOAD_INTERVAL = 5 # Faster reload for responsiveness
+STRATEGY_RELOAD_INTERVAL = 30
 last_heartbeat = time.time()
 
 print("🔄 Starting signal engine loop...\n")
@@ -135,9 +135,6 @@ while True:
 
                 partial_fill_enabled = bool(triggers.get("partial_fill_enabled", True))
                 min_fill_qty = triggers.get("min_fill_qty") or max(1, purchase_qty // 2)
-                
-                # Check for WEEKLY strategy tag if needed (Optional but safe)
-                # Currently we process ALL active strategies in user_strategies.json
 
                 # BUY
                 if buy_trigger and current_price <= buy_trigger:
